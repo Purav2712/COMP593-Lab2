@@ -59,7 +59,8 @@ def add_pizza_toppings(about_me,toppings):
 def print_pizza_toppings(about_me):
     print("My favourite pizza toppings are:")
     for topping in about_me['pizza_toppings']:
-        print(topping)
+         
+        print(f"- {topping}")
 
 
 # TODO: Step 7 - Function that prints comma-separated list of movie genres
