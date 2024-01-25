@@ -19,8 +19,19 @@ def main():
     # TODO: Step 3 - Add another movie to the data structure
     about_me['movies'].append({'title' : 'star wars',
                                'genre' : 'Sci-fi'})
-    print_student_name_and_id(about_me)
-    return                           
+    print_student_name_and_id(about_me)     
+
+    print_pizza_toppings(about_me)
+
+    toppings=["CHICKEN","PANEER"]
+    add_pizza_toppings(about_me,toppings)
+
+    print_pizza_toppings(about_me)
+
+    print_movie_genres(about_me)
+
+    print_movie_titles(about_me)
+
     
 # TODO: Step 4 - Function that prints student name and ID	
 def print_student_name_and_id(data_struct):
@@ -33,24 +44,36 @@ def print_student_name_and_id(data_struct):
     print(f"My student ID is {student_id}.")
 
     print()
-
-    return
+    
     
 # TODO: Step 5 - Function that adds pizza toppings to data structure
-def add_pizza_toppings(about_me, toppings):
-    return
+def add_pizza_toppings(about_me,toppings):
+    for a in toppings:
+        about_me['pizza_toppings'].append(a)
+    about_me['pizza_toppings'].sort()
+    about_me['pizza_toppings'] = [topping.lower() for topping in about_me['pizza_toppings']]
+
+    
 
 # TODO: Step 6 - Function that prints bullet list of pizza toppings
 def print_pizza_toppings(about_me):
-    return
+    print("My favourite pizza toppings are:")
+    for topping in about_me['pizza_toppings']:
+        print(topping)
+
 
 # TODO: Step 7 - Function that prints comma-separated list of movie genres
 def print_movie_genres(about_me):
-    return 
+     genres = [movie['genre'] for movie in about_me['movies']]
+     print(f"I like to watch {', '.join(genres)} movies.\n")
+
 
 # TODO: Step 8 - Function that prints comma-separated list of movie titles
-def print_movie_titles(movie_list):
-    return
+def print_movie_titles(about_me):
+    titles = (movie['title'].title() for movie in about_me["movies"])
+    print(f"Some of my favourite movies are {', '.join(titles)}!\n")
+
+
     
 if __name__ == '__main__':
     main()
